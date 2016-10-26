@@ -30,7 +30,7 @@ def process_line(filename, fume_cd, prodno_list, acres_treated_list, line, resul
         idx += 1
         # Since we need an entry for each prodno we loop through here
         for prodno in prodno_list:
-            wrline = "{0},{1},{2},{3},{4}\n".format(prodno, fume_cd, gpa, acres_treated, buff_dist)
+            wrline = "{0},{1},{2},{3},{4}\n".format(fume_cd, prodno, gpa, acres_treated, buff_dist)
             results_fp.write(bytes(wrline, 'UTF-8'))
     
     
@@ -61,7 +61,7 @@ def read_file(filename, results_fp):
                     fume_cd = line
             # second line is the list of product numbers
             elif (line_count == 1):
-                prodno_list = line.split('\t')
+                prodno_list = line.split(',')
             # third line is the column values (acres treated)
             elif (line_count == 2):
                 acres_treated_list = line.split(',')
@@ -96,6 +96,8 @@ outputs:
 """
 def init_csv_parse(dirname):
     results_fp = open("results.csv", "wb+")
+    wrline = "fume_cd,prodno,gpa,acres_treated,buff_dist"
+    results_fp.write(bytes(wrline, 'UTF-8'))
     open_dir(dirname, results_fp)
     results_fp.close()
         
