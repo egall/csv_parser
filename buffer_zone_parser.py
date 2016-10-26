@@ -1,5 +1,7 @@
 import sys, os
 
+CSV_DIR="/home/egall/scratch/csvs"
+
 """
 process_line() -- processes each line of the input file and writes the result in output file
 inputs:
@@ -100,4 +102,4 @@ def init_csv_parse(dirname):
     
 
 if __name__ == "__main__":
-    init_csv_parse("/home/egall/scratch/scritch/scratch/csvs/")
+    init_csv_parse(CSV_DIR)
