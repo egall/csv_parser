@@ -1,0 +1,7 @@
+For both buffer_zone_parser.py and preprocessor.sh the full paths to the csv directory will have to be added.
+
+To run buffer_zone_parser.py:
+> python3 buffer_zone_parser.py
+
+To run preprocess.sh
+> sh preprocess.sh
